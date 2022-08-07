@@ -20,7 +20,7 @@
                         <ul class="post-tags">
                             <li><i class="fa fa-tags"></i></li>
                             @foreach($post->tags as $tag)
-                                <li><a href="#">{{ $tag->name }}</a>
+                                <li><a href="#" @if($tag->key == $searchedTag) class="searched-tag" @endif>{{ $tag->name }}</a>
                                     @unless($loop->last) , @endunless</li>
                             @endforeach
                         </ul>

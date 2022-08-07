@@ -19,13 +19,21 @@ class SiteController extends Controller
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function homepage()
+    public function homepage($searchedTag = null)
     {
-        $posts = Post::orderByDesc('created_at')->orderByDesc('id')->paginate(5);
+        $query = Post::query();
+
+        if ($searchedTag) {
+            $query->whereHas('tags', function ($q) use ($searchedTag) {
+                $q->where('key', $searchedTag);
+            });
+        }
+
+        $posts = $query->orderByDesc('created_at')->orderByDesc('id')->paginate(5);
         $recentPosts = $this->recentPosts;
         $tags = $this->tags;
 
-        return view('main', compact(['posts', 'tags', 'recentPosts']));
+        return view('main', compact(['posts', 'tags', 'recentPosts', 'searchedTag']));
     }
 
     /**

@@ -6,7 +6,7 @@
         <div class="content">
             <ul>
                 @foreach($tags as $tag)
-                    <li><a href="#">{{ $tag->name }}</a></li>
+                    <li><a href="{{ route("/", ['tag' => $tag->key]) }}" @if($tag->key == $searchedTag) class="searched-tag" @endif>{{ $tag->name }}</a></li>
                 @endforeach
             </ul>
         </div>

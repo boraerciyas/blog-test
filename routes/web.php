@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SiteController::class, 'homepage'])->name('/');
+Route::get('/{tag?}', [SiteController::class, 'homepage'])->name('/');
 Route::get('/post/{post}', [SiteController::class, 'post'])->name('post');
 /*
 Route::get('{any}', function () {
