@@ -52,6 +52,12 @@ COPY . /var/www
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
+#RUN composer install --ignore-platform-reqs && npm install --legacy-peer-deps
+
+# Laravel Settings and DB migrations
+#RUN php artisan key:generate && \
+#    php artisan config:cache
+
 # Change current user to www
 USER www
 

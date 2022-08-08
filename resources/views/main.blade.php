@@ -36,7 +36,7 @@
                     <div class="all-blog-posts">
                         <div class="row">
                             @foreach($posts as $post)
-                                @include('layout.post-listing', ['post' => $post, 'searchedTag' => $searchedTag])
+                                @include('layout.post-listing', ['post' => $post, 'searchedTag' => $searchedTag ?? null])
                             @endforeach
                             <div class="col-lg-12">
                                 {{ $posts->links() }}
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                @include('layout.sidebar', ['searchedTag' => $searchedTag])
+                @include('layout.sidebar', ['searchedTag' => $searchedTag ?? null])
             </div>
         </div>
     </section>

@@ -12,7 +12,7 @@
 
             @include('layout.recent-posts')
 
-            @include('layout.tags', ['searchedTag' => $searchedTag])
+            @include('layout.tags', ['searchedTag' => $searchedTag ?? null])
 
         </div>
     </div>
