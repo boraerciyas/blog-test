@@ -13,6 +13,11 @@ Otherwise, you can run application in your local environment, but you are going 
 
 ## Docker 
 
+Default ports are used on docker environment so if your local machine runs 
+`MySQL` on default port **3306**, `Redis Server` on default port **6379** and/or Apache/Nginx etc. on default port **80**,
+You may need to stop those services to bind docker ports to your main machine's ports.
+
+
 ```shell
 # Copy .env.example to .env
 cp .env.example .env
@@ -23,6 +28,9 @@ docker exec -it app npm install --legacy-peer-deps
 docker exec -it app php artisan key:generate
 docker exec -it app php artisan migrate --seed
 ```
+
+Then you can go
+[http://localhost](http://localhost) in your favourite browser to view the project.
 
 ## Local
 
@@ -43,4 +51,6 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+Then you can go
+[http://localhost:8000](http://localhost:8000) in your favourite browser to view the project.
 
